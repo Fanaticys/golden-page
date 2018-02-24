@@ -1,0 +1,469 @@
+@import "bourbon"
+@import "vars.sass"
+@import "fonts.sass"
+
+//Load Libs SASS
+//@import "app/libs/animate/animate.sass"
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+.preloader
+	background-color: #000
+	position: fixed
+	width: 100%
+	height: 100%
+	z-index: 9999
+	background-image: url(../img/preloader.svg)
+	background-repeat: no-repeat
+	background-position: center
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	font-family: "RobotoSlab", $georgia
+	overflow-x: hidden
+	color: #777
+
+h1, h2, h3, h4, h5, h6
+	font-family: MontserratBold, $helvetica
+	text-transform: uppercase
+	font-weight: bold
+	color: #222
+	margin: 0
+
+h2
+	font-size: em(40px)
+	line-height: 31px
+
+a, a:hover, a:active, a:focus
+	text-decoration: none
+
+section
+	padding: 120px 0
+
+.arial
+	font-family: Arial, $helvetica
+
+.hidden
+	display: none
+
+.before
+	content: ''
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+
+.buttons
+	display: inline-block
+	height: 65px
+	width: 240px
+	background-color: #fdd135
+	border-radius: 3px
+	font-size: em(18px)
+	font-family: MontserratBold, $helvetica
+	font-weight: bold
+	line-height: 65px
+	text-transform: uppercase
+	color: #fff
+	&:hover, &:active, &:focus
+		color: #fff
+		text-decoration: none
+
+.section_gray
+	background-color: #f7f7f7
+
+
+.main-header
+	background-size: cover
+	position: relative
+	background-position: center top
+	&::before
+		@extend .before
+		background-color: #000
+		opacity: .5
+	.top-line	
+		position: absolute
+		top: 50px
+		width: 100%
+		transition: top 0.25s ease
+		&.on
+			position: fixed
+			top: 0
+			padding: 20px 0
+			background-color: #fff
+			z-index: 999
+			border-bottom: 1px solid #999
+			transition: padding 0.25s ease
+			.main-menu ul li a
+				color: #000
+				&.on
+					color: $main-color
+			.toggle-menu span,
+			.toggle-menu span:after,
+			.toggle-menu span:before
+				background-color: #000
+			.toggle-menu.on span 
+				background-color: transparent
+	h1, h2
+		color: #fff
+		text-align: center
+	h1
+		font-size: em(65px)
+		line-height: 60px
+		margin-bottom: 60px
+	h2
+		margin-bottom: 50px
+		font-family: MontserratItalic, $helvetica
+		font-style: italic
+		line-height: 30px
+		text-transform: none
+		font-weight: normal
+	.middle-header
+		text-align: center
+		padding-top: 250px
+		padding-bottom: 160px
+
+.main-menu
+	display: inline-block
+	font-size: em(14px)
+	float: right
+	font-family: MontserratRegular, $helvetica
+	.anchor.on ul li a
+		color: $main-color
+	ul
+		list-style-type: none
+		margin: 0
+		padding: 0
+		li
+			line-height: 28px
+			margin-right: 40px
+			display: inline-block
+			text-transform: uppercase
+			&:last-child
+				margin-right: 0
+			a
+				color: #fff
+				&:hover
+					color: $main-color
+
+.toggle-menu
+	display: block
+	width: 28px
+	height: 18px
+	float: right
+	margin-top: 10px
+
+.toggle-menu span:after,
+.toggle-menu span:before 
+	content: ""
+	position: absolute
+	left: 0
+	top: -9px
+
+.toggle-menu span:after
+	top: 9px
+
+.toggle-menu span 
+	position: relative
+	display: block
+
+.toggle-menu span,
+.toggle-menu span:after,
+.toggle-menu span:before
+	width: 100%
+	height: 2px
+	background-color: #fff
+	transition: all 0.3s
+	backface-visibility: hidden
+	border-radius: 2px
+
+.toggle-menu.on span 
+	background-color: transparent
+
+.toggle-menu.on span:before 
+	transform: rotate(45deg) translate(5px, 5px)
+
+.toggle-menu.on span:after 
+	transform: rotate(-45deg) translate(7px, -8px)
+
+.toggle-menu.on + #menu 
+	opacity: 1
+	visibility: visible
+
+.section-header
+	text-align: center
+	margin-bottom: 80px
+	p
+		margin-top: 20px
+		font-family: MontserratItalic, $helvetica
+		font-style: italic
+
+
+//Custom Styles Here
+.section_1
+	padding-bottom: 100px
+	.section-content
+		text-align: center
+		.s1-item
+			opacity: 0
+			transition: all .5s ease
+			transform: translateY(-25px)
+			&.on
+				opacity: 1
+				transform: translateY(0)
+		.img-wrap
+			display: inline-block
+			margin-bottom: 25px
+			color: $main-color
+		h6
+			font-size: em(18px)
+			text-transform: none
+		a
+			color: #777
+
+.section_2
+	@extend .section_1
+	padding-bottom: 70px
+	.item
+		background-color: #fff
+		margin-bottom: 50px
+		padding-bottom: 25px
+		transition: all 1s ease
+		&-on
+			opacity: 1
+		&-off
+			transform: rotateY(100deg)
+			opacity: 0
+		p
+			margin: 0
+			font-family: MontserratItalic, $helvetica
+			font-style: italic
+			
+		img
+			margin-bottom: 25px
+			height: auto
+			width: 100%
+
+.section_3
+	text-align: center
+	h5, h6
+		font-size: em(18px)
+	h6
+		text-transform: none
+	.right
+		text-align: right
+		position: absolute
+		right: -20px
+		width: 350px
+	.left
+		text-align: left
+		position: absolute
+		left: -20px
+		width: 350px
+	.item
+		transition: all 1s ease
+		&-off
+			opacity: 0
+			transform: rotateY(100deg)
+		&-on
+			opacity: 1
+	.line
+		height: 268px
+		&::after
+			content: ''
+			display: inline-block
+			position: absolute
+			left: 50%
+			top: 67%
+			height: 90px
+			width: 2px
+			background-color: #f1f1f1
+			transform: translate(-50%, 0)
+	.img-wrap
+		border-radius: 10em
+		overflow: hidden
+		width: 180px
+		height: 180px
+		border: 7px solid #f1f1f1
+		display: inline-block
+		&:last-child
+			background-color: #fed136
+			h5
+				color: #fff
+				width: 100px
+				position: absolute
+				left: 50%
+				transform: translate(-50%, -50%)
+				top: 50%
+
+.section_4
+	text-align: center
+	h2
+		line-height: 50px
+	h6
+		font-size: em(16px)
+		text-transform: none
+		margin-top: 15px
+	.section-content
+		p
+			font-size: em(14px)
+			margin: 7px 0
+		.item
+			transition: all 0.5s ease
+			&-off
+				opacity: 0
+				transform: rotateY(100deg)
+			&-on
+				opacity: 1
+	.img-wrap
+		border-radius: 10em
+		overflow: hidden
+		width: 220px
+		height: 220px
+		display: inline-block
+	.section_footer
+		max-width: 500px
+		display: inline-block
+		margin-top: 30px
+		p
+			font-size: em(16px)
+	.social_icons
+		span
+			display: inline-block
+			width: 40px
+			height: 40px
+			border: 3px solid #222
+			border-radius: 10em
+			margin: 4px
+			color: #222
+			font-size: em(20px)
+			line-height: 36px
+			&:hover
+				border: 3px solid $main-color
+				color: $main-color
+
+.footer
+	.footer-top
+		text-align: center
+		padding: 40px 0
+		.item
+			line-height: 44px
+			margin: 20px 15px
+			height: 44px
+			width: auto
+			display: inline-block
+
+	.footer-middle
+		background-color: #222
+		background-image: url(../img/map.png)
+		background-repeat: no-repeat
+		background-position: bottom right
+		.section-header
+			h2
+				color: #fff
+		.section-content
+			input, textarea
+				width: 100%
+				padding: 0 20px
+				border-radius: 3px
+				border: 1px solid #ccc
+				background-color: #fff
+				font-size: em(14px)
+				&::placeholder
+					color: #bbb
+					text-transform: uppercase
+					font-family: MontserratBold, $helvetica
+					font-weight: bold
+			input
+				height: 50px
+				margin-bottom: 30px
+				line-height: 50px
+				&:last-child
+					margin-bottom: 0
+				&::placeholder
+					line-height: 50px
+			textarea
+				height: 210px
+				resize: none
+				line-height: 30px
+				padding: 10px 20px
+				&::placeholder
+					line-height: 30px
+			.button-wrap
+				text-align: center
+				.buttons
+					margin-top: 25px
+
+	.footer-bottom
+		text-align: left
+		p
+			color: #555
+			font-size: em(14px)
+			font-family: MontserratRegular, $helvetica
+			font-weight: bold
+			margin: 0 auto
+			line-height: 90px
+		.social_icons
+			text-align: center
+			margin: 25px 0
+			span
+				display: inline-block
+				font-size: em(20px)
+				height: 40px
+				width: 40px
+				background-color: #222
+				border-radius: 10em
+				position: relative
+				color: #fff
+				&:hover
+					color: $main-color
+				i
+					line-height: 40px
+
+.send-email
+	display: none
+	background-color: #111
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	opacity: .9
+	z-index: 999
+	h2
+		text-align: center
+		color: $main-color
+		position: absolute
+		min-width: 250px
+		opacity: 1
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		text-transform: none
+//ALWAYS END
+@import "media.sass"
+@import "libs.sass"
